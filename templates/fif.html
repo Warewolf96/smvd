@@ -5,6 +5,17 @@
        <link rel="stylesheet" media="screen" href ="static/bootstrap.min.css">
        <link rel="stylesheet" href="static/bootstrap-theme.min.css">
        <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+  <script>
+    $(function() {
+      $( "#datepicker" ).datepicker({ minDate: -100, maxDate: "+0D" });
+      $("#datepicker").datepicker("setDate",new Date());
+      $( "#datepicker" ).datepicker( "option", "dateFormat", "dd/mm/yy");
+    });
+</script>
  
     </head>
     <body>
@@ -13,22 +24,29 @@
 <div class="container">
  
  
-  <h2>Flask Web Form</h2>
+  <h2>Fine Impulsion Form</h2>
   <form  action="" method="post" role="form">
     {{ form.csrf }}
     <div class="form-group">
-      <label for="name">Parth</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="What's your name?">
+      <label for="name">Name of the offense</label>
+      <input type="text" class="form-control" id="name" name="name">
       <br>
-      <label for="email">Email:</label>
-      <input type="text" class="form-control" id="email" name="email" placeholder="Your email will be used to contact you.">
+      <label for="email">Penality Imposed</label>
+      <input type="text" class="form-control" id="email" name="email">
       <br>
-      <label for="password">Password:</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Enter a password.">
- 
+      <label for="password">Name of the Officer</label>
+      <input type="password" class="form-control" id="password" name="password">
+
+      <br>
+      <label for="password">Remark</label>
+      <input type="password" class="form-control" id="password" name="password">  
+
+      <br>
+      <label class="control-label" for="date">Date</label>
+      <input class="form-control" id="datepicker" name="date" type="text"/> 
  
     </div>
-    <button type="submit" class="btn btn-success">Sign Up</button>
+    <button type="submit" class="btn btn-success">Submit</button>
   </form>
  
   <br>
