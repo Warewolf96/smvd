@@ -1,5 +1,4 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort
-from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 import os
 from sqlalchemy.orm import sessionmaker
 from tabledef import *
@@ -7,20 +6,19 @@ engine = create_engine('sqlite:///tutorial.db', echo=True)
  
 app = Flask(__name__)
 app.secret_key = os.urandom(12)
+
+def shutdown_server():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
  
-
-class ReusableForm(Form):
-    name = TextField('Parth:', validators=[validators.required()])
-    email = TextField('Email:', validators=[validators.required(), validators.Length(min=6, max=35)])
-    password = TextField('Password:', validators=[validators.required(), validators.Length(min=3, max=35)])
-
 @app.route('/')
 def home():
-    form = ReusableForm(request.form)
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        return render_template('table2.html', form=form)
+        return render_template('table.html')
  
 @app.route('/login', methods=['POST'])
 def do_admin_login():
@@ -34,6 +32,15 @@ def do_admin_login():
 def logout():
     session['logged_in'] = False
     return home()
- 
+
+@app.route('/table2')
+def foobar():
+    return render_template('table2.html')
+
+@app.route('/shutdown')
+def shutdown():
+    shutdown_server()
+    return 'Server shutting down...'
+
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0', port=4000)
