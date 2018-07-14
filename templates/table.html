@@ -41,11 +41,20 @@ body {
 <table>
 <thead><tr><th>Name</th><th>Submit</th></tr></thead>
 <tbody>
-<tr><td>YRC</td><td><a>Submit</a></td></tr>
-<tr><td>FINE IMPULSION FORM</td><td><a href="https://form.jotform.me/81914511476458">Submit</a></td></tr>
-<tr><td>IC HELIPAD</td><td><a href="https://form.jotform.me/81914222176454">Submit</a></td></tr>
-<tr><td>SA TO CEO</td><td><a href="https://form.jotform.me/81914578476471">Submit</a></td></tr>
-<tr><td>WIRELESS SECTION</td><td><a href="https://form.jotform.me/81914665676470">Submit</a></td></tr>
-<tr><td>OPERATION SECTION</td><td><a href="https://form.jotform.me/81914934676469">Submit</a></td></tr>
+<tr><td>YRC</td><td><a href="{{ url_for('yrc') }}">Submit</a></td></tr>
+<tr><td>FINE IMPULSION FORM</td><td><a href="{{ url_for('fif') }}">Submit</a></td></tr>
+<tr><td>IC HELIPAD</td><td><a href="{{ url_for('ic') }}">Submit</a></td></tr>
+<tr><td>SA TO CEO</td><td><a href="{{ url_for('sa') }}">Submit</a></td></tr>
+<tr><td>WIRELESS SECTION</td><td><a href="{{ url_for('ws') }}">Submit</a></td></tr>
+<tr><td>OPERATION SECTION</td><td><a href="{{ url_for('os') }}">Submit</a></td></tr>
+<tr><td>IC E&R</td><td><a href="{{ url_for('icer') }}">Submit</a></td></tr>
+<tr><td>SALES REPORT</td><td><a href="{{ url_for('sr') }}">Submit</a></td></tr>
+<tr><td>SHIFTING AND GARBAGE</td><td><a href="{{ url_for('sg') }}">Submit</a></td></tr>
+<tr><td>BANGANGA</td><td><a href="{{ url_for('ban') }}">Submit</a></td></tr>
+<tr><td>AUDIO SYSTEM</td><td><a href="{{ url_for('aus') }}">Submit</a></td></tr>
+<tr><td>ACCOMODATION REPORT</td><td><a href="{{ url_for('ar') }}">Submit</a></td></tr>
+<tr><td>BHAWAN</td><td><a href="{{ url_for('bha') }}">Submit</a></td></tr>
+<tr><td>GAURI BHAWAN</td><td><a href="{{ url_for('gb') }}">Submit</a></td></tr>
+<tr><td>JAMMU TO BHAWAN</td><td><a href="{{ url_for('jtb') }}">Submit</a></td></tr>
 </tbody>
 </table>
